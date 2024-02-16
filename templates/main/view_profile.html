@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+    <h1>My Profile</h1>
+    <p>Name: {{ user.first_name }} {{user.last_name}}</p>
+    <p>Username: {{ user.username }}</p>
+    <p>Email: {{ user.email }}</p>
+    <p>Phone number: {{ user.phone_number }}</p>
+    <p>Age: {{ user.age }} years.</p>
+    <p>Weight: {{ user.weight }} kg.</p>
+    <p>Height: {{ user.height }} cm.</p>
+    <a href="{% url 'password_change' %}">Change Password</a> |
+    <a href="{% url 'main' %}">Back to Main</a>
+{% endblock %}
