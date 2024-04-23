@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts.apps.AccountsConfig',
     'meal_details.apps.MealDetailsConfig',
+    'nutrition_systems.apps.NutritionSystemsConfig',
     'rest_framework',
     'rest_framework.authtoken',
     "crispy_forms",
