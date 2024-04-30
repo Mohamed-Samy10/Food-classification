@@ -17,26 +17,11 @@ def suggest_diet_plan(request):
     user = CustomUser.objects.get(pk=user_id)
     ideal_weight = user.height - 100
     weight_difference = user.weight - ideal_weight
-
-    try:
-        if weight_difference > 30:
-            suggested_plan = DietPlan.objects.get(name="easy")
-        elif weight_difference > 20:
-            suggested_plan = DietPlan.objects.get(name="medium")
-        elif weight_difference > 10:
-            suggested_plan = DietPlan.objects.get(name="hard")
-        elif weight_difference > 0:
-            suggested_plan = DietPlan.objects.get(name="extreme")
-        elif weight_difference == 0:
+    
+    if weight_difference == 0:
             return Response({"message": "Congratulations! You are at your ideal weight."})
-        elif weight_difference < -20:
-            suggested_plan = DietPlan.objects.get(name="easy-slim")
-        elif weight_difference < -10:
-            suggested_plan = DietPlan.objects.get(name="medium-slim")
-        elif weight_difference < 0:
-            suggested_plan = DietPlan.objects.get(name="hard-slim")
-        else:
-            return Response({"message": "Diet plan not available"}, status=status.HTTP_404_NOT_FOUND)
+    try:
+        suggested_plan = DietPlan.objects.get(minimum_difference_weight__lte=weight_difference,maximum_difference_weight__gte=weight_difference)
     except DietPlan.DoesNotExist:
         return Response({"message": "Diet plan not available"}, status=status.HTTP_404_NOT_FOUND)
     
