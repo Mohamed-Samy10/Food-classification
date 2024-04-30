@@ -22,7 +22,7 @@ class Day(models.Model):
 class DietPlan(models.Model) :
     name = models.CharField(max_length=50)
     days = models.ManyToManyField(Day)
-    minimum_difference_weight = models.PositiveSmallIntegerField()
+    minimum_difference_weight = models.SmallIntegerField()
     maximum_difference_weight = models.SmallIntegerField()
     def __str__(self):
         return f"{self.name}: from {self.minimum_difference_weight} to {self.maximum_difference_weight}"
