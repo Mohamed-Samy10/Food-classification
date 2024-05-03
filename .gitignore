@@ -1,4 +1,5 @@
 db.*
 media/*
 *__pycache__*
+
 *.pyc
