@@ -7,15 +7,12 @@ from rest_framework.permissions import IsAuthenticated
 from .models import AnalyzedFood
 from .serializers import AnalyzedFoodSerializer
 from accounts.models import CustomUser
-from django.views.decorators.csrf import csrf_exempt
-from django.utils.decorators import method_decorator
 
 
 FLASK_API_URL = 'http://34.197.217.211:8000/upload'
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
-@method_decorator(csrf_exempt, name='dispatch')
 def upload_and_analyze(request):
     user = request.user
     try:
