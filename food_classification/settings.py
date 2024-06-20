@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'meal_details.apps.MealDetailsConfig',
     'nutrition_systems.apps.NutritionSystemsConfig',
+    'calor_ai.apps.CalorAiConfig',
     'rest_framework',
     'rest_framework.authtoken',
     "crispy_forms",

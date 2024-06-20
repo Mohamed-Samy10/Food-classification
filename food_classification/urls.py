@@ -24,6 +24,7 @@ urlpatterns = [
     path('', include("django.contrib.auth.urls")),
     path('', include('meal_details.urls')),
     path('', include('nutrition_systems.urls')),
+    path('', include('calor_ai.urls')),
     path('api-auth/', include('rest_framework.urls')),
 
 ]
