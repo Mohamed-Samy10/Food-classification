@@ -9,7 +9,7 @@ from .serializers import AnalyzedFoodSerializer
 from accounts.models import CustomUser
 
 
-FLASK_API_URL = 'http://34.197.217.211:8000/upload'
+FLASK_API_URL = 'http://127.0.0.1:8000/upload'
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
