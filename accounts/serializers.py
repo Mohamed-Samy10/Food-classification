@@ -3,7 +3,7 @@ from .models import CustomUser
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
-        fields = ['username','first_name','last_name','phone_number','gender','age','weight','height','email', 'password']
+        fields = ['image','username','first_name','last_name','phone_number','gender','age','weight','height','email', 'password']
         extra_kwargs = {'password': {'write_only': True},
                         'gender': {'required': True},
                         'age': {'required': True},
@@ -26,4 +26,4 @@ class ChangePasswordSerializer(serializers.Serializer):
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
-        fields = ['username','first_name','last_name','phone_number','gender','age','weight','height','email']
+        fields = ['username','first_name','last_name','phone_number','gender','age','weight','height','email','image']
